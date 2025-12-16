@@ -1,9 +1,10 @@
 SuiteOf('スモークテスト');
 
-Scenario('example.comにアクセスする',  ({ I }) => {
-    // ページ遷移
-    I.amOnPage('https://example.com')
-    // 表示の確認
-    I.see('Example Domain')
-})
-;
+Scenario('Webサイトを開きログインする', ({ I }) => {
+    I.amOnPage("http://0.0.0.0:8080/items")
+    I.click('ログインする')
+    I.fillField('ユーザー名', 'user1')
+    I.fillField('パスワード', 'super-strong-passphrase')
+    I.click('ログイン')
+    I.see('user1 さん')
+});

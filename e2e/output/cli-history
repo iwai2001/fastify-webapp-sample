@@ -1,0 +1,9 @@
+
+
+<<< Recorded commands on Tue Dec 16 2025 16:22:35 GMT+0900 (日本標準時)
+I.amOnPage("http://0.0.0.0:8080/items")
+I.click('ログインする')
+I.fillField('パスワード', 'super-strong-passphrase')
+I.fillField('ユーザー名', 'user1')
+I.click('ログイン')
+I.see('user1 さん')
