@@ -39,7 +39,12 @@ async function main() {
   } catch (error) {
     // If error happened partially through migrations,
     // error object is decorated with appliedMigrations
-    console.error(error); // array of migration objects
+    if (error.code === 'ECONNREFUSED') {
+      console.error('データベースへの接続に失敗しました。データベースサーバーが起動しているか、.envファイルのPGHOSTとPGPORTの設定が正しいか確認してください。');
+      console.error(`Attempted to connect to: ${process.env.PGHOST}:${process.env.PGPORT}`);
+    }
+    console.error('\n詳細なエラー情報:');
+    console.error(error);
   }
 
   // Once done migrating, close your connection.
