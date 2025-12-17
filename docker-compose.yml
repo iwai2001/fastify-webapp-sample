@@ -12,3 +12,7 @@ services:
       POSTGRES_PASSWORD: admin
     volumes:
       - ./db/init:/docker-entrypoint-initdb.d
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

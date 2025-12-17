@@ -1,7 +1,7 @@
 SuiteOf('スモークテスト');
 
 Scenario('Webサイトを開きログインする', ({ I }) => {
-    I.amOnPage("http://0.0.0.0:8080/items")
+    I.amOnPage('/items')
     I.click('ログインする')
     I.fillField('ユーザー名', 'user1')
     I.fillField('パスワード', 'super-strong-passphrase')
