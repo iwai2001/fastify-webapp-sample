@@ -39,18 +39,19 @@ jobs:
           ref: gh_pages
           path: gh_pages
 
-      - name: Build test report
-        uses: simple-elf/allure-report-action@v1.7
+      - name: Generate Allure Report
+        uses: allure-framework/allure-action@v1
         if: always()
         with:
-          gh_pages: gh_pages
-          allure_history: allure-history
-          allure_results: e2e/allure-results
+          results_path: e2e/allure-results
+          report_path: allure-report
+          report_name: allure-report
 
-      - name: Publish test report
+      - name: Publish Allure Report
         uses: peaceiris/actions-gh-pages@v4
         if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh_pages
-          publish_dir: allure-history
+          publish_dir: allure-report
+          keep_files: true
