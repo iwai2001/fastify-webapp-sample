@@ -10,7 +10,6 @@ on:
 jobs:
   run-e2e:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,6 +18,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
+
+      - name: Install Playwright dependencies
+        run: npx playwright install-deps
+        working-directory: ./e2e
 
       - name: Setup E2E test
         run: npm ci
@@ -39,19 +42,19 @@ jobs:
           ref: gh_pages
           path: gh_pages
 
-      - name: Generate Allure Report
-        uses: allure-framework/allure-action@v1
+      - name: Build test report
+        uses: simple-elf/allure-report-action@v1.7
         if: always()
         with:
-          results_path: e2e/allure-results
-          report_path: allure-report
-          report_name: allure-report
+          gh_pages: gh-pages
+          allure_history: allure-history
+          allure_report: allure-report
+          allure_results: e2e/allure-results
 
-      - name: Publish Allure Report
+      - name: Publish test Report
         uses: peaceiris/actions-gh-pages@v4
         if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh_pages
-          publish_dir: allure-report
-          keep_files: true
+          publish_branch: gh-pages
+          publish_dir: allure-history
