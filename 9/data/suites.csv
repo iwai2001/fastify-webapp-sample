@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1056","ユーザーが存在しないURLにアクセスすると、エラーメッセージと商品一覧へのリンクが表示される","","Tue Dec 23 04:58:45 UTC 2025","passed","Tue Dec 23 04:58:46 UTC 2025","","一般的なテストのエラー","",""
+"","10095","ログインし、お弁当を注文し、お弁当を受け取る","","Tue Dec 23 04:58:34 UTC 2025","passed","Tue Dec 23 04:58:45 UTC 2025","","注文プロセスのテスト","",""
