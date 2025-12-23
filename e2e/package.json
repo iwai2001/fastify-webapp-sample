@@ -12,6 +12,7 @@
   "dependencies": {
     "allure-codeceptjs": "^2.15.1",
     "codeceptjs": "^3.3.7",
+    "dayjs": "^1.11.19",
     "playwright": "^1.30.0"
   },
   "devDependencies": {

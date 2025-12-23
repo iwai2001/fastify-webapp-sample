@@ -10,7 +10,7 @@ setCommonPlugins();
 
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
-  tests: './*_test.js',
+  tests: './tests/**/*_test.js',
   output: './output',
   helpers: {
     Playwright: {
@@ -20,7 +20,8 @@ exports.config = {
     }
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
+    utils: './utils'
   },
   translation: 'en-US',
   vocabularies: ['./vocabularies.json'],
